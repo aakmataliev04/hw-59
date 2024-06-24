@@ -7,6 +7,7 @@ interface Props {
   onFilmItemChange: React.ChangeEventHandler<HTMLInputElement>
   onDeleteFilmItem: React.MouseEventHandler<HTMLButtonElement>
 }
+
 const Films: React.FC<Props> = ({filmsList, onFilmItemChange, onDeleteFilmItem}) => {
   return (
     <div className={'filmsList'}>
@@ -15,12 +16,12 @@ const Films: React.FC<Props> = ({filmsList, onFilmItemChange, onDeleteFilmItem})
       {
         filmsList.map((film) => {
           return (
-              <FilmsItem
-                key={film.id}
-                filmName={film.name}
-                onFilmItemChange={(event) => onFilmItemChange(event, film.id)}
-                onDeleteFilmItem={() => onDeleteFilmItem(film.id)}
-              />
+            <FilmsItem
+              key={film.id}
+              filmName={film.name}
+              onFilmItemChange={(event) => onFilmItemChange(event, film.id)}
+              onDeleteFilmItem={() => onDeleteFilmItem(film.id)}
+            />
           );
         })
       }

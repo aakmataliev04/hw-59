@@ -7,7 +7,6 @@ const FilmsPage = () => {
   const [filmsList, setFilmsList] = useState<FilmType[]>([
     {id: 1, name: 'BladeRunner 2049'},
     {id: 2, name: 'BladeRunner 1982'},
-    {id: 3, name: 'BladeRunner 2099'}
   ]);
   const [InputValue, setInputValue] = useState('');
 
@@ -26,12 +25,12 @@ const FilmsPage = () => {
         return item.id === id;
       });
       prevState[index].name = event.target.value;
-      return  [...prevState];
+      return [...prevState];
     });
   };
-  const deleteFilmItem = ( id: number) => {
+  const deleteFilmItem = (id: number) => {
     setFilmsList((prevState) => {
-      const copyPrevState = [...prevState] ;
+      const copyPrevState = [...prevState];
       const index = prevState.findIndex((item) => {
         return item.id === id;
       });
@@ -42,7 +41,8 @@ const FilmsPage = () => {
 
 
   return (
-    <div>
+    <div style={{marginBottom: '50px'}}>
+      <h1 style={{marginTop: '0'}}>Films To Watch</h1>
       <AddFilmForm inputValue={InputValue} onFormSubmit={addFilm} onChangeValue={(event) => changeInputValue(event)}/>
       <Films filmsList={filmsList} onFilmItemChange={changeFilmItemValue} onDeleteFilmItem={deleteFilmItem}/>
     </div>
